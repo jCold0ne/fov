@@ -25,6 +25,9 @@ food.display
 exit 
 elsif answer == "vegetable"
     then p "YOU FAIL NO TOMATO FOR YOU"
+    include Magick
+    food = ImageList.new("squashed_tomato.png")
+    food.display
 end 
 
 
