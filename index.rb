@@ -29,24 +29,29 @@ random = array.sample.values[0].to_a.sample(1).to_h.keys[0]
 
 puts "Welcome to, Is it a Fruit or a Vegetable".bold
 puts "Where your knowledge of fruit and vegetables will be challenged"
-sleep(2)
+# sleep(2)
+prompt = "Please enter fruit or vegetable\n"
 puts "Question 1:".bold + "Is a #{random} a fruit or vegetable?"
 
-answer = gets.chomp 
-
+while answer = gets.chomp 
 if answer == "fruit"
-    puts "Thats correct!".bold + "#{random}"
+    puts "Thats correct! you win a #{random}".bold 
     include Magick
     food = ImageList.new("#{random}.png")
     food.display
+    break
 elsif answer == "vegetable"
-    then p "YOU FAIL NO #{random.upcase} FOR YOU"
+    then p "YOU FAIL NO #{random.upcase} FOR YOU".bold 
     include Magick
     food = ImageList.new("wrong.png")
     food.display
+    break 
 else 
     puts "Invalid Input"
+    print prompt 
+end 
 end 
 
 # gets.chomp 
+
 
