@@ -26,15 +26,15 @@ bank = [{
 
 puts "Welcome to, Is it a Fruit or a Vegetable".bold
 puts "Where your knowledge of fruit and vegetables will be challenged"
+sleep(2)
 
-
-def questions(bank)
+def questions(bank, qnum)
 
 random = bank.sample.values[0].to_a.sample(1).to_h #randomises bank values(fruit or veg) then converts contents to an array and randomises again extracting 1 key aka. "avocado" 
 key = random.keys[0] #accesses the randomised key aka. avocado 
 value = random[key] #accesses the associated value of key aka. The avocado is actually a berry
 
-puts "Question 1:".bold + "Is a #{key} a fruit or vegetable?"
+puts "Question #{qnum}:".bold + "Is a #{key} a fruit or vegetable?"
 
 fruit = bank[0][:fruit].has_key?(key) #checks bank >> goes into :fruit >> checks for fruit key >> returns true or false
 
@@ -45,7 +45,7 @@ if answer == "fruit" && fruit || answer == "vegetable" && !fruit
     include Magick
     food = ImageList.new("#{key}.png")
     food.display
-    puts value 
+    puts value.italic  
     break
 
 elsif answer == "vegetable" && fruit || answer == "fruit" && !fruit 
@@ -53,6 +53,7 @@ elsif answer == "vegetable" && fruit || answer == "fruit" && !fruit
     include Magick
     food = ImageList.new("wrong.png")
     food.display
+    puts value.italic 
     break 
 else 
     puts "Invalid Input"
@@ -61,8 +62,9 @@ end
 end  
 end
 
-questions(bank)
-questions(bank) 
+questions(bank, 1)
+questions(bank, 2)
+questions(bank, 3)
 
 
 
