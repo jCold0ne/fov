@@ -1,5 +1,6 @@
 require "RMagick"
 require "colorize"
+require "tty-font"
 
 # Fruits are formed from flowers, have seeds and assist with the plant’s reproduction process. 
 # vegetables are the roots, stems, leaves or other auxiliary parts of the plant. 
@@ -25,9 +26,11 @@ bank = [{
 }]
 rescue
 end 
-puts "Welcome to, Is it a Fruit or a Vegetable".bold
-puts "Where your knowledge of fruit and vegetables will be challenged"
-sleep(3)
+font = TTY::Font.new(:doom)
+
+puts font.write("Is it a Fruit or a Vegetable", letter_spaceing: 10)
+puts "Where your knowledge of fruit and vegetables will be challenged".bold 
+sleep(4)
 
 def questions(bank, qnum)
 
@@ -61,7 +64,7 @@ else
     print prompt 
 end 
 end 
-sleep (3.5)
+sleep (4)
 end  
 
 questions(bank, 1)
@@ -70,7 +73,7 @@ questions(bank, 3)
 questions(bank, 4)
 questions(bank, 5)
 
-puts "Thank you for playing Is it a Fruit or a Vegetable!"
+puts font.write("Thank you for playing", letter_spaceing: 10)
 
 
 
