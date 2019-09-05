@@ -36,7 +36,7 @@ bank = [{
         tomato: "Tomatoes are botanically fruits because they form from a flower and contain seeds",
         cucumber: "Cucumbers are botanically fruits because they develop from the flower of the cucumber plant and contain the seeds.",
         avocado: "The avocado is actually a berry! Avocados are considered a fruit because they fit all of the botanical criteria for a berry.",
-        aubergine: "Aubergines are botanically fruits because the contain seeds",
+        aubergine: "Aubergines are botanically fruits because they contain seeds",
         lemon: "A lemon is classified as a type of fruit. The reason that it is considered a fruit rather than a vegetable is because it still contains its seeds.",
         olive: "Olives are classified as frut because they're formed from the ovary of the olive flower and contain seeds"
     }
