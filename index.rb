@@ -2,9 +2,35 @@ require "RMagick"
 require "colorize"
 require "tty-font"
 
-# Fruits are formed from flowers, have seeds and assist with the plant’s reproduction process. 
-# vegetables are the roots, stems, leaves or other auxiliary parts of the plant. 
 begin 
+argv_copy = ARGV.map{ |i| i }
+ARGV.clear
+check(argv_copy)
+
+help_options = ["-h", "--help"]
+​
+def check (array)
+​
+    return if array.length == 0
+​
+    for item in help_options
+        if array.include?(item)
+            help_file()
+            exit
+        end 
+    end
+​
+    print "Invalid Input: "
+    array.map {|x| print "#{x} "}
+    puts "\nUse [-h] or [--help] to access the help menu"
+    exit
+​
+end
+rescue 
+end 
+# Fruits are formed from flowers, have seeds and assist with the plant’s reproduction process. 
+# Vegetables are the roots, stems, leaves or other auxiliary parts of the plant. 
+
 bank = [{
     fruit: {
         tomato: "Tomatoes are botanically fruits because they form from a flower and contain seeds",
@@ -24,8 +50,7 @@ bank = [{
         artichoke: " The artichoke part that is eaten is botanically a flower but could also be classified as a vegetable by the way it is consumed"
     }
 }]
-rescue
-end 
+
 font = TTY::Font.new(:doom)
 
 puts font.write("Is it a Fruit or a Vegetable", letter_spaceing: 10)
