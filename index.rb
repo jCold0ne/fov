@@ -44,7 +44,7 @@ while answer = gets.strip
 if answer == "fruit" && fruit || answer == "vegetable" && !fruit 
     puts "Thats correct! you win a #{key}".bold 
     include Magick
-    food = ImageList.new("#{key}.png")
+    food = ImageList.new("./images/#{key}.png")
     food.display
     puts value.italic  
     break
@@ -52,7 +52,7 @@ if answer == "fruit" && fruit || answer == "vegetable" && !fruit
 elsif answer == "vegetable" && fruit || answer == "fruit" && !fruit 
     then puts "YOU FAIL NO #{key.upcase} FOR YOU".bold 
     include Magick
-    food = ImageList.new("wrong.png")
+    food = ImageList.new("./images/wrong.png")
     food.display
     puts value.italic 
     break 
