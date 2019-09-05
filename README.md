@@ -46,19 +46,49 @@ bank = [{
 The bank variable acts as an easy way to access each item individually. Since we are randomlly choosing fruits and vegetables for our questions we require this many levels of hashes within an array.
 <br>
 <br>
-The <b>randomiser</b>, randomly selects fruit/vegetable names from the bank to fill the question, "Is a (randomly chosen) a fruit or a vegetable?". Since the quiz is only five questions long the user is encouraged to replay the quiz - the randomiser enables a sense of replayability as the questions asked are unlikley to be the same. Below is the description to code used to randomise the questions and extract the corresponding descrition.
+The <b>randomiser</b>, randomly selects fruit/vegetable names from the bank to fill the question, "Is a (randomly chosen) a fruit or a vegetable?". Since the quiz is only five questions long the user is encouraged to replay the quiz - the randomiser enables a sense of replayability as the questions asked are unlikley to be the same. Below is the description to the code used to randomise the questions and extract the corresponding descrition.
 <br>
 <br>
 bank.sample.values[0].to_a.sample(1).to_h 
 <br>
 <br>
-Randomises bank values(fruit or veg) then converts contents to an array and randomises again extracting 1 key aka. "avocado". Contents are converted back into a hash to simplify future access.
+Takes the variable bank and randomises the values(fruit or veg) then converts contents to an array and randomises again extracting 1 key aka. "avocado". Contents are converted back into a hash to simplify future access.
 The contents are converted into an array because .sample does not work on an hash. 
+<br>
+<br>
+key = random.keys[0]
+<br>
+<br>
+Accesses the randomised key aka. "avocado"
+<br>
+<br> 
+value = random[key] 
+<br>
+<br>
+Accesses the associated value of key, "Avocado is technically a berry"
+<br>
+<br>
+For the quiz to be interactive we need <b>User Input</b>. Users can type their answers, "fruit" or "vegetable" into the terminal as a way of interacting with the quiz. gets.strip is used to achieve this level of interaction. To determine the different user inputs a while loop containing a if/else statement is used to decipher the user inputted answers. The while loop with a prompt, "Please enter fruit or vegetable" is used for invalid inputs allowing the application to continue running instead of closing.
+<br>
+<br>
+An <b>image</b> file opens as a separte window upon answering a question correctly or incorrectly. The image aims to bring vibrance to the quiz adding another level of interactivity. A ruby gem called RMagick was installed to achieve this which works concurrently with XQuartz. Below is the code used to generate the image.
+<br>
+<br>
+require "RMagick" <br>
+include Magick <br>
+    food = ImageList.new("./images/#{key}.png")<br>
+    food.display<br>
+<br>
 
-key = random.keys[0] #accesses the randomised key aka. "avocado" 
-value = random[key] #accesses the associated value of key aka. The avocado is actually a berry
-<br>
-<br>
+<b>User Interaction and Experience</b>
+
+Users are first welcomed to the application with a short introduction. Afterwards the first randomised question appears prompting the user for input. If the user selects "fruit" or "vegetable" an image will appear and a botanical description of the fruit/vegetable will be printed. If the user types anything else the application will prompt the user, "Please enter fruit or vegetable." To move onto the next question the user will need to close the image file - this is a current flaw in the UI and will be fixed in a later version. A description of the fruit/vegetable is printed for users to read 3.5 seconds before the next question appears.  All 5 questions run from the same method repeating the same process of: <br>
+Question > Answer > Image Result > Close image > Description > Next Question. <br>
+
+
+
+
+
 
 
 
