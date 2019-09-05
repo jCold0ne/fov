@@ -27,7 +27,7 @@ rescue
 end 
 puts "Welcome to, Is it a Fruit or a Vegetable".bold
 puts "Where your knowledge of fruit and vegetables will be challenged"
-sleep(2)
+sleep(3)
 
 def questions(bank, qnum)
 
@@ -61,14 +61,16 @@ else
     print prompt 
 end 
 end 
+sleep (3.5)
 end  
-
 
 questions(bank, 1)
 questions(bank, 2)
 questions(bank, 3)
 questions(bank, 4)
 questions(bank, 5)
+
+puts "Thank you for playing Is it a Fruit or a Vegetable!"
 
 
 
