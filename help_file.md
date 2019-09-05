@@ -37,6 +37,10 @@ ImageMagick Version 6.7.7 or later (6.×.x). Version 7 is NOT yet supported; ETA
 XQuartz 
 https://www.xquartz.org/ 
 
+<b>User Features Description</b>
+As a user of the app you be asked 5 questions testing your knowledge of the differences between a fruit a vegetable. Upon answering the question by entering "fruit" or "vegetable" an image will appear (in a separate window) with a message marking your answer. You MUST close the image window after each question to continue the quiz. 
+
+
 
 
 
