@@ -3,7 +3,7 @@ require "colorize"
 
 # Fruits are formed from flowers, have seeds and assist with the plant’s reproduction process. 
 # vegetables are the roots, stems, leaves or other auxiliary parts of the plant. 
-
+begin 
 bank = [{
     fruit: {
         tomato: "Tomatoes are botanically fruits because they form from a flower and contain seeds",
@@ -23,7 +23,8 @@ bank = [{
         artichoke: " The artichoke part that is eaten is botanically a flower but could also be classified as a vegetable by the way it is consumed"
     }
 }]
-
+rescue
+end 
 puts "Welcome to, Is it a Fruit or a Vegetable".bold
 puts "Where your knowledge of fruit and vegetables will be challenged"
 sleep(2)
@@ -59,12 +60,15 @@ else
     puts "Invalid Input"
     print prompt 
 end 
+end 
 end  
-end
+
 
 questions(bank, 1)
 questions(bank, 2)
 questions(bank, 3)
+questions(bank, 4)
+questions(bank, 5)
 
 
 
