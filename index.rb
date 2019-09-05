@@ -32,7 +32,9 @@ puts font.write("Is it a Fruit or a Vegetable", letter_spaceing: 10)
 puts "Where your knowledge of fruit and vegetables will be challenged".bold 
 sleep(4)
 
-def questions(bank, qnum)
+win = []
+
+def questions(bank, qnum, win)
 
 random = bank.sample.values[0].to_a.sample(1).to_h #randomises bank values(fruit or veg) then converts contents to an array and randomises again extracting 1 key aka. "avocado" 
 key = random.keys[0] #accesses the randomised key aka. avocado 
@@ -46,6 +48,7 @@ fruit = bank[0][:fruit].has_key?(key) #checks bank >> goes into :fruit >> checks
 while answer = gets.strip
 if answer == "fruit" && fruit || answer == "vegetable" && !fruit 
     puts "Thats correct! you win a #{key}".bold 
+    win.push(key)
     include Magick
     food = ImageList.new("./images/#{key}.png")
     food.display
@@ -64,17 +67,25 @@ else
     print prompt 
 end 
 end 
+if fruit == true 
+bank[0][:fruit].delete(key)
+else 
+    bank[1][:vegetable].delete(key)
+end 
 sleep (4)
+return win 
 end  
 
-questions(bank, 1)
-questions(bank, 2)
-questions(bank, 3)
-questions(bank, 4)
-questions(bank, 5)
+questions(bank, 1, win)
+questions(bank, 2, win)
+questions(bank, 3, win)
+questions(bank, 4, win)
+questions(bank, 5, win)
 
 puts font.write("Thank you for playing", letter_spaceing: 10)
 
+puts "In your goodie bag is:".bold 
+win.each do |item| puts item.to_s.bold end
 
 
 
