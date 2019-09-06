@@ -1,9 +1,7 @@
+require_relative "./questions.rb"
 require "RMagick"
 require "colorize"
 require "tty-font"
-
-# Fruits are formed from flowers, have seeds and assist with the plant’s reproduction process. 
-# Vegetables are the roots, stems, leaves or other auxiliary parts of the plant. 
 
 bank = [{
     fruit: {
@@ -40,62 +38,23 @@ rescue
     puts "You have encountered an error, good luck :)"
 end 
 
+#Welcome
 font = TTY::Font.new(:doom)
-
 puts font.write("Is it a Fruit or a Vegetable", letter_spaceing: 10)
 puts "Where your knowledge of fruit and vegetables will be challenged".bold 
+
 sleep(4)
 
 win = []
 
-def questions(bank, qnum, win)
-
-random = bank.sample.values[0].to_a.sample(1).to_h #randomises bank values(fruit or veg) then converts contents to an array and randomises again extracting 1 key aka. "avocado" 
-key = random.keys[0] #accesses the randomised key aka. avocado 
-value = random[key] #accesses the associated value of key aka. The avocado is actually a berry
-
-puts "Question #{qnum}:".bold + "Is a #{key} a fruit or vegetable?"
-
-fruit = bank[0][:fruit].has_key?(key) #checks bank >> goes into :fruit >> checks for fruit key >> returns true or false
-
-    prompt = "Please enter fruit or vegetable\n"
-while answer = gets.strip
-if answer == "fruit" && fruit || answer == "vegetable" && !fruit 
-    puts "Thats correct! you win a #{key}".bold 
-    win.push(key)
-    include Magick
-    food = ImageList.new("./images/#{key}.png")
-    food.display
-    puts value.italic  
-    break
-
-elsif answer == "vegetable" && fruit || answer == "fruit" && !fruit 
-    then puts "YOU FAIL NO #{key.upcase} FOR YOU".bold 
-    include Magick
-    food = ImageList.new("./images/wrong.png")
-    food.display
-    puts value.italic 
-    break 
-else 
-    puts "Invalid Input"
-    print prompt 
-end 
-end 
-if fruit == true 
-bank[0][:fruit].delete(key)
-else 
-    bank[1][:vegetable].delete(key)
-end 
-sleep (4)
-return win 
-end  
-
+#Questions
 questions(bank, 1, win)
 questions(bank, 2, win)
 questions(bank, 3, win)
 questions(bank, 4, win)
 questions(bank, 5, win)
 
+#Conclusion
 puts font.write("Thank you for playing", letter_spaceing: 10)
 
 puts "In your goodie bag is:".bold 

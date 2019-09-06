@@ -1,3 +1,3 @@
 !/usr/bin/env sh
 mkdir dist
-cp -R images index.rb ./dist
+cp -R images index.rb questions.rb ./dist
