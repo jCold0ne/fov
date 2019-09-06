@@ -88,6 +88,10 @@ Question > Answer > Image Result > Close image > Description > Next Question.
 
 After the fifth question the mini-game thanks the user for playing and prints their winning answers to the screen.
 
+<b>Control Flow Diagram</b>
+
+[]https://github.com/jCold0ne/fov/blob/master/docs/control_flow_diagram.png
+
 <b>Implementation Plan</b>
 
 Feature 1 - Bank
@@ -112,7 +116,7 @@ App is coming along well - the feature of randomly selecting the question is run
 
 The app now deciphers whether or not the user input is a fruit or vegetable and is able to delete the fruit/veg chosen by the randomiser so it is not randomised again in a subsequent question. Documentation has been started currently working on the User Interactions and experience section. A scoring system has been added to the application which compiles the correct answers into an array and prints the contents to the page as a string. 
 
-<b>Implement Application</b>
+<b>Project Management</b>
 Screenshots of trello in use:
 
 []https://github.com/jCold0ne/fov/blob/master/docs/trello_ss_1.png
@@ -122,6 +126,16 @@ Screenshots of trello in use:
 []https://github.com/jCold0ne/fov/blob/master/docs/trello_ss_3.png  
 
 []https://github.com/jCold0ne/fov/blob/master/docs/trello_ss_4.png  
-   
+
+<b> Help File</b>
+[]https://github.com/jCold0ne/fov/blob/master/help_file.md
+Or, when running the application in your Terminal enter: <br>"ruby index.rb --help"
+To have the help fild print to your Terminal screen.
+
+<b> Test Cases </b>
+view raw from link below to download microsoft excel file.
+[]https://github.com/jCold0ne/fov/blob/master/docs/test_cases.xlsx  
+
+<b>fin</b>
 </body>
 </html>
