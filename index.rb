@@ -2,32 +2,6 @@ require "RMagick"
 require "colorize"
 require "tty-font"
 
-begin 
-argv_copy = ARGV.map{ |i| i }
-ARGV.clear
-check(argv_copy)
-
-help_options = ["-h", "--help"]
-​
-def check (array)
-​
-    return if array.length == 0
-​
-    for item in help_options
-        if array.include?(item)
-            help_file()
-            exit
-        end 
-    end
-​
-    print "Invalid Input: "
-    array.map {|x| print "#{x} "}
-    puts "\nUse [-h] or [--help] to access the help menu"
-    exit
-​
-end
-rescue 
-end 
 # Fruits are formed from flowers, have seeds and assist with the plant’s reproduction process. 
 # Vegetables are the roots, stems, leaves or other auxiliary parts of the plant. 
 
@@ -50,6 +24,21 @@ bank = [{
         artichoke: " The artichoke part that is eaten is botanically a flower but could also be classified as a vegetable by the way it is consumed"
     }
 }]
+
+begin
+argv_copy = ARGV.map{ |i| i }
+ 
+help_options = ["-h", "--help"]
+
+if help_options.include?(ARGV[0])
+    File.open("help_file.md").each do |line|
+        puts line 
+    end
+end 
+
+rescue
+    puts "You have encountered an error, good luck :)"
+end 
 
 font = TTY::Font.new(:doom)
 
